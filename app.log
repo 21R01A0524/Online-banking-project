@@ -41,13 +41,13 @@ def valid_user(user_name:int, password:int):
         print("Please check check your login credentials")
         return False
     
-# balence function
-def balence(user_name:int):
-    lg.debug("User in balence page")
+# balance function
+def balance(user_name:int):
+    lg.debug("User in balance page")
     if user_name in users_table:
         amount = users_table[user_name][2]
-        lg.info(f"{user_name} user current balence is {amount}")
-        print(f"{user_name} user current balence is {amount}")
+        lg.info(f"{user_name} user current balance is {amount}")
+        print(f"{user_name} user current balance is {amount}")
     else:
         lg.warning("User not found")
         print("User not found")
@@ -60,8 +60,8 @@ def withdraw(user_name):
     withdraw_amount = int(input("Please enter withdraw amount: "))
     if amount >= withdraw_amount:
         users_table[user_name][2] -= withdraw_amount
-        lg.info(f'{withdraw_amount} withdraw successful and current balence is {users_table[user_name][2]}')
-        print(f'{withdraw_amount} withdraw successful and current balence is {users_table[user_name][2]}')
+        lg.info(f'{withdraw_amount} withdraw successful and current balance is {users_table[user_name][2]}')
+        print(f'{withdraw_amount} withdraw successful and current balance is {users_table[user_name][2]}')
 
     else:
         lg.warning("Insufficent amount")
@@ -74,8 +74,8 @@ def deposite(user_name:int):
     deposite_amount = int(input("Please enter deposite amount: "))
     if user_name in users_table:
         users_table[user_name][2] += deposite_amount
-        lg.info(f'{deposite_amount} deposite successful and current balence is {users_table[user_name][2]}')
-        print(f'{deposite_amount} deposite successful and current balence is {users_table[user_name][2]}')
+        lg.info(f'{deposite_amount} deposite successful and current balance is {users_table[user_name][2]}')
+        print(f'{deposite_amount} deposite successful and current balance is {users_table[user_name][2]}')
 
     else:
         lg.warning("User not found")
@@ -94,8 +94,8 @@ def transfer(user_name):
             # amount updatetion in users table
             users_table[user_name][2] -= amount
             users_table[recevier_account][2] += amount
-            lg.info(f'{amount} transfer successfully and current balence is {users_table[user_name][2]}')
-            print(f'{amount} transfer successfully and current balence is {users_table[user_name][2]}')
+            lg.info(f'{amount} transfer successfully and current balance is {users_table[user_name][2]}')
+            print(f'{amount} transfer successfully and current balance is {users_table[user_name][2]}')
             
         else:
             lg.warning("Insufficent amount")
@@ -122,7 +122,7 @@ def chose_operation(account_no, choice):
     lg.info(f"selected operation is {operations[choice-1]}")
     val = False
     if choice == 1:
-        balence(user_name=account_no)
+        balance(user_name=account_no)
     elif choice == 2:
         withdraw(user_name= account_no)
     elif choice == 3:
@@ -160,3 +160,4 @@ if __name__ == "__main__":
 [2025-08-16 14:56:55,608 - DEBUG] - User in login page
 [2025-08-16 14:56:55,608 - WARNING] - Please check check your login credentials
 [2025-08-16 14:56:55,608 - WARNING] - User not found, please check with your login credentials
+
